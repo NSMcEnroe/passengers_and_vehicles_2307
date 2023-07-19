@@ -43,10 +43,18 @@ RSpec.describe Park do
         vehicle_1.add_passenger(jude)
         vehicle_1.add_passenger(taylor)
 
+        vehicle_2 = Vehicle.new("2004", "Ford", "Mustang")
+        corey = Passenger.new("name" => "Corey", "age" => 27)
+        vehicle_2.add_passenger(corey)
+
         
         yosemite.add_vehicle(vehicle_1)
 
         expect(yosemite.passengers).to eq([charlie, jude, taylor])
+        expect(vehicle_1.passengers). to eq([charlie, jude, taylor])
+
+        yosemite.add_vehicle(vehicle_2)
+        expect(yosemite.passengers).to eq([charlie, jude, taylor, corey])
     end
         
 

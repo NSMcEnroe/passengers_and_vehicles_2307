@@ -8,8 +8,7 @@ class Park
     end
 
     def passenger_count(vehicle)
-        @passengers << vehicle.passengers
-        @passengers.concat
+        @passengers += vehicle.passengers
     end
 
 
