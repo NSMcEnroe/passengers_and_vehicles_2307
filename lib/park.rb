@@ -10,6 +10,7 @@ class Park
 
     def passenger_count(vehicle)
         @passengers += vehicle.passengers
+
     end
 
 
@@ -21,6 +22,14 @@ class Park
 
         @revenue += 10
     end
+
+    # def all_attendees
+    #     only_passengers = @passengers.name
+    #     require 'pry';binding.pry
+    #     only_passengers.sort
+    # end
+
+
 
 
 

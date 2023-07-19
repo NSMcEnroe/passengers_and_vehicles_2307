@@ -76,8 +76,33 @@ RSpec.describe Park do
         expect(yosemite.revenue).to eq(10)
         yosemite.add_vehicle(vehicle_2)
         expect(yosemite.revenue).to eq(20)
-        
+    end
 
+    xit "can list current attendees of the park" do
+        yosemite = Park.new("Yosemite", 10)
+        vehicle_1 = Vehicle.new("2001", "Honda", "Civic")
+        charlie = Passenger.new({"name" => "Charlie", "age" => 18}) 
+        jude = Passenger.new({"name" => "Jude", "age" => 20})
+        taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+        vehicle_1.add_passenger(charlie)
+        vehicle_1.add_passenger(jude)
+        vehicle_1.add_passenger(taylor)
+
+        vehicle_2 = Vehicle.new("2004", "Ford", "Mustang")
+        corey = Passenger.new("name" => "Corey", "age" => 27)
+        vehicle_2.add_passenger(corey)
+
+        vehicle_3 = Vehicle.new("2018", "Ford", "F-150")
+        miguel = Passenger.new("name" => "Miguel", "age" => 29)
+        vehicle_3.add_passenger(miguel)
+
+        expect(yosemite.passengers).to eq([])
+
+        yosemite.add_vehicle(vehicle_1)
+        yosemite.add_vehicle(vehicle_2)
+        yosemite.add_vehicle(vehicle_3)
+
+        expect(yosemite.all_attendees).to eq([charlie, corey, jude, miguel, taylor])
     end
 
 
