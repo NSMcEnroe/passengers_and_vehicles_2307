@@ -56,7 +56,29 @@ RSpec.describe Park do
         yosemite.add_vehicle(vehicle_2)
         expect(yosemite.passengers).to eq([charlie, jude, taylor, corey])
     end
+
+    it "can collect admission prices" do
+        yosemite = Park.new("Yosemite", 10)
+        vehicle_1 = Vehicle.new("2001", "Honda", "Civic")
+        charlie = Passenger.new({"name" => "Charlie", "age" => 18}) 
+        jude = Passenger.new({"name" => "Jude", "age" => 20})
+        taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+        vehicle_1.add_passenger(charlie)
+        vehicle_1.add_passenger(jude)
+        vehicle_1.add_passenger(taylor)
+
+        vehicle_2 = Vehicle.new("2004", "Ford", "Mustang")
+        corey = Passenger.new("name" => "Corey", "age" => 27)
+        vehicle_2.add_passenger(corey)
+
+        expect(yosemite.revenue).to eq(0)
+        yosemite.add_vehicle(vehicle_1)
+        expect(yosemite.revenue).to eq(10)
+        yosemite.add_vehicle(vehicle_2)
+        expect(yosemite.revenue).to eq(20)
         
+
+    end
 
 
 end
